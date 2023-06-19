@@ -2,21 +2,26 @@
 #include <stdlib.h>
 #include <time.h>
 
-/*
+/**
+ *
  *main - Entry point 
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	char low, e, q;
-
-	e = 'e';
-	q = 'q';
-	for (low = 'a'; low <= 'z'; low++)
+	int lowerCase = 'a'
+	while (lowerCase <= 'z')
 	{
-	if (low != e && low != q)
-	putchar(low);
+	if (lowerCase == 'e' || lowerCase 'q')
+	{
+	lowerCase += 1;
+	}
+	else
+	{
+	putchar(lowerCase);
+	lowerCase += 1;
+	}
 	}
 	putchar('\n');
 	return (0);
