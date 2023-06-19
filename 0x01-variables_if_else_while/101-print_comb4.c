@@ -3,28 +3,33 @@
 #include <time.h>
 
 /**
- * mai - Entry point 
+ * main - Entry point
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	void printCombination(int a, int b, int c) {
-	putchar('0' + a);
-        putchar('0' + b);
-        putchar('0' + c);
-        putchar(',');
-        putchar(' ');
-	}
+	int d, p, q;
 
-	void printAllCombinations() {
-        for (int i = 0; i <= 7; i++) {
-        for (int j = i + 1; j <= 8; j++) {
-        for (int k = j + 1; k <= 9; k++) {
-        printCombination(i, j, k);
+	for (d = '0'; d < '9'; d++)
+	{
+	for (p = d + 1; p <= '9'; p++)
+	{
+	for (q = p + 1; q <= '9'; q++)
+	{
+	if ((p != d) != q)
+	{
+	putchar(d);
+	putchar(p);
+	putchar(q);
+	if (d == '7' && p == '8')
+	continue;
+	putchar(',');
+	putchar(' ');
 	}
 	}
 	}
 	}
+	putchar('\n');
 	return (0);
 }
