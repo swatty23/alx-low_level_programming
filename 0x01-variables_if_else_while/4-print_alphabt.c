@@ -3,25 +3,21 @@
 #include <time.h>
 
 /**
- *
- *main - Entry point 
+ * main - Entry post
  * Return: Always 0 (Success)
  */
 
 int main(void)
 {
-	int lowerCase = 'a'
-	while (lowerCase <= 'z')
+	char low, e, q;
+
+	e = 'e';
+	q = 'q';
+
+	for (low = 'a'; low <= 'z'; low++)
 	{
-	if (lowerCase == 'e' || lowerCase 'q')
-	{
-	lowerCase += 1;
-	}
-	else
-	{
-	putchar(lowerCase);
-	lowerCase += 1;
-	}
+	if (low != e && low != q)
+	putchar(low);
 	}
 	putchar('\n');
 	return (0);
