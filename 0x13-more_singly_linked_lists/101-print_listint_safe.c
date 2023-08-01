@@ -8,21 +8,25 @@
 
 size_t print_listint_safe(const listint_t *head)
 {
-	const listint_t *slow = head;
-	const listint_t *fast = head;
+	const listint_t *current = head;
 	size_t count = 0;
+	int is_loop = 0;
 
-	while (slow != NULL && fast != NULL && fast->next != NULL)
+	while (current != NULL)
 	{
-	printf("[%p] %d\n", (void *)slow, slow->n);
-	slow = slow->next;
-	fast = fast->next->next;
+	printf("[%p] %d\n", (void *)current, current->n);
 	count++;
-	if (slow == fast)
+	if ((void *)current <= (void *)(current->next))
 	{
-	printf("[%p] %d\n", (void *)slow, slow->n);
+	is_loop = 1;
 	break;
 	}
+	current = current->next;
+	}
+	if (is_loop)
+	{
+	printf("-> [%p] %d\n", (void *)current, current->n);
+	printf("loop starts at [%p]\n", (void *)current);
 	}
 	return (count);
 }
