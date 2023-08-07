@@ -6,11 +6,23 @@
 
 #define BUF_SIZE 64
 
+/**
+ * print_error - Prints the error message and exits with the given code.
+ * @msg: The error message to print.
+ * @code: The exit code.
+ */
+
 void print_error(const char *msg, int code)
 {
 	dprintf(STDERR_FILENO, "%s\n", msg);
 	exit(code);
 }
+
+/**
+ * display_elf_header - Displays the information contained in the ELF header
+ * at the start of an ELF file.
+ * @header: Pointer to the ELF header structure.
+ */
 
 void display_elf_header(const Elf64_Ehdr *header)
 {
@@ -73,6 +85,21 @@ void display_elf_header(const Elf64_Ehdr *header)
 	}
 	printf("Entry point address: 0x%lx\n", (unsigned long)header->e_entry);
 }
+
+/**
+ * readelf - Reads an ELF file and displays its information.
+ * @filename: The name of the ELF file to read.
+ *
+ * Displayed information: Magic, Class, Data, Version, OS/ABI, ABI Version, Type,
+ * Entry point address (same format as readelf -h version 2.26.1).
+ * If the file is not an ELF file or on error, exit with status code 98
+ * and display a comprehensive error message to stderr.
+ * You are allowed to use lseek once.
+ * You are allowed to use read a maximum of 2 times at runtime.
+ * You are allowed to have as many functions as you want in your source file.
+ * You are allowed to use printf.
+ * man elf, readelf for ELF file format details.
+ */
 
 int main(int argc, char *argv[])
 {
